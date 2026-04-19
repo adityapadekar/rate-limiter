@@ -15,7 +15,6 @@ func main() {
 	router.HandleFunc("/{path...}", func(w http.ResponseWriter, r *http.Request) {
 		host, _, _ := net.SplitHostPort(r.RemoteAddr)
 		path := r.PathValue("path")
-
 		if ok := rateLimiter.RateLimitRequest(host, r.Method+" /"+path); !ok {
 			w.WriteHeader(http.StatusTooManyRequests)
 			w.Write([]byte("Rate limit reached"))
