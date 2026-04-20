@@ -7,8 +7,8 @@ import (
 	"sync"
 )
 
-var routes = []string{"/route1"}
-var sourceIPs = []string{"127.0.0.1"}
+var routes = []string{"/route1", "/route2", "/route3", "/route4"}
+var sourceIPs = []string{"127.0.0.1", "127.0.0.2", "127.0.0.3"}
 
 func clientWithIP(ip string) *http.Client {
 	localAddr := &net.TCPAddr{IP: net.ParseIP(ip)}
